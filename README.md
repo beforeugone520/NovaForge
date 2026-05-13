@@ -56,7 +56,7 @@
 
 ```bash
 # 1. 克隆
-git clone https://github.com/SiriusFzh/study-review-template.git
+git clone https://github.com/SiriusFzh/NovaForge.git
 cd study-review-template
 
 # 2. 选择你的版本
