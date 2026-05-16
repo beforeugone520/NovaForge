@@ -32,10 +32,11 @@
 
 ## 📋 更新日志
 
-### 2026/5/16 13:00
-- **新增  目录**：内置 NovaForge、pdf、summarize-slides 三个 skill，克隆后 Claude Code 自动识别 、、 命令
-- **NovaForge.skill 同步**：更新为最新版本，与本地 SKILL.md 一致
-- **快速开始简化**：无需手动复制 skill 文件，开箱即用
+### 2026/5/16 23:00
+- **新增 .claude/skills/NovaForge.skill**：克隆后 Claude Code 自动识别 `/novaforge` 命令，无需手动复制
+- **NovaForge.skill 更新**：
+  - Intake 模式选择优化：明确指令直接推断，模糊指令按上下文给出 2~4 个选项
+  - 编译格式选择用 AskUserQuestion 交互
 
 ### 2026/5/16 12:00
 - **修复引号渲染方向**：导言区新增中文引号规范，强制使用 Unicode 弯引号（U+201C/U+201D）
@@ -155,9 +156,7 @@ NovaForge/
 ├── .gitignore
 ├── .claude/                            # Claude Code 集成
 │   └── skills/                         #   skill 目录
-│       ├── NovaForge.skill             #     笔记模板（/novaforge）
-│       ├── pdf/                        #     PDF 处理（/pdf）
-│       └── summarize-slides/           #     课件总结（/summarize-slides）
+│       └── NovaForge.skill             #     笔记模板（/novaforge）
 │
 ├── NovaForge.skill                    # ← Claude Code 独立 skill 文件
 │
