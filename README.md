@@ -32,7 +32,7 @@
 
 ## 📋 更新日志
 
-### 2026/5/17
+### 2026/5/17 11:56
 - **改用标准 Skills 目录布局**：`NovaForge.skill` → `skills/novaforge/SKILL.md`、`.claude/skills/NovaForge.skill` → `.claude/skills/novaforge/SKILL.md`。让 ccswitch 等外部工具及 Claude Code 本地发现机制能按官方约定识别 skill
 
 ### 2026/5/16 23:22
