@@ -32,6 +32,9 @@
 
 ## 📋 更新日志
 
+### 2026/5/25 12:30
+- **修复自定义 subagent 类型缺失导致的工具调用错误**：新增 `.agents/segment-writer.md` 和 `.agents/verifier.md` agent 定义文件；SKILL.md 将 subagent 类型改为默认 general-purpose，确保所有环境均可正常使用 subagent 派发
+
 ### 2026/5/17 14:30
 - **Skill 目录精简**：移除 .claude/skills/novaforge/ 冗余副本，skills/novaforge/SKILL.md 为唯一源文件；根目录新增 NovaForge.skill 独立下载入口；新增 scripts/install-skill.bat/sh 一键安装脚本
 - **TikZ 箭头标签防重叠规则**：SKILL.md 新增 alabel 样式强制规则，AI 生成 TikZ 时自动使用 alabel/alabel above/alabel below
