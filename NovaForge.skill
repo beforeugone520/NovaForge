@@ -107,17 +107,17 @@ Do not use this skill for：
 
 ## Workflow Model
 
-- `controller`：负责确认需求、全局理解知识体系、分块规划、合并、生成模板文件、编译、最终检查
-- `segment-writer`：每个知识模块的独立写手
-- `verifier`：检查覆盖完整性、结构是否完整、公式是否正确、内容是否准确
+- `controller`：主流程，负责确认需求、全局理解知识体系、分块规划、合并、生成模板文件、编译、最终检查
+- `segment-writer`：每个知识模块的独立写手（agent 定义见 `.agents/segment-writer.md`）
+- `verifier`：质量审查（agent 定义见 `.agents/verifier.md`）
 
 ## Dispatch Rules
 
 - 按知识体系的自然模块（章节笔记模式按教材章节，期末复习模式按考试题型，科研模式按文献/研究方向）分块
 - 每块用对应的模板结构组织
-- 各块之间独立时可并行派发 `segment-writer`
+- 各块之间独立时可并行派发 `segment-writer` subagent
 - 紧密关联的推导链不应拆分
-- `verifier` 必须在合并后单独执行，不可复用 `segment-writer`
+- `verifier` subagent 必须在合并后单独执行，不可复用 `segment-writer`
 
 ## Execution Flow
 
@@ -200,7 +200,7 @@ Default style：
 
 ## Step 5. Segment Writer Phase
 
-可用 subagent 则并行派发 `segment-writer`，否则 controller 顺序执行。
+可用 subagent 则并行派发多个 subagent（使用默认 general-purpose 类型，参考 `.agents/segment-writer.md` 的说明），否则 controller 顺序执行。
 
 ### 章节笔记模式
 每个 `segment-writer` 返回：
@@ -469,7 +469,7 @@ Controller 合并所有 segment 笔记为连贯的结构化草稿。
 
 ## Verifier Phase
 
-所有 segment 合并后，执行独立的 verifier pass。
+所有 segment 合并后，执行独立的 verifier pass（可用 subagent，参考 `.agents/verifier.md`）。
 
 Verifier 检查：
 - 所有知识模块是否覆盖
