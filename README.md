@@ -22,8 +22,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"/>
-  <img src="https://img.shields.io/badge/LaTeX-xelatex-green.svg" alt="LaTeX"/>
   <img src="https://img.shields.io/badge/Typst-typst-rgb(0%2C%20130%2C%20200)" alt="Typst"/>
+  <img src="https://img.shields.io/badge/LaTeX-xelatex-green.svg" alt="LaTeX"/>
   <img src="https://img.shields.io/badge/markdown-ready-brightgreen.svg" alt="Markdown"/>
   <a href="skills/novaforge/SKILL.md"><img src="https://img.shields.io/badge/Claude-Skill-8A2BE2" alt="Claude Skill"/></a>
 </p>
@@ -95,12 +95,12 @@
 
 | 特性 | 说明 |
 |------|------|
-| **三版本支持** | LaTeX（经典 PDF）/ Typst（现代 PDF）/ Markdown（即写即用） |
+| **三版本支持** | Typst（默认，编译 PDF）/ LaTeX（编译 PDF）/ Markdown（即写即用） |
 | **7 步模块化结构** | 概念→原理→方法→示例→实战→练习→复盘 |
 | **领域无关** | 不预设学科，理科文科工科医科均可 |
 | **6 种场景模板** | 章节笔记 / 期末复习 / 考研 / 考公 / 科研文献 / 项目总结 |
 | **中文原生** | 完整中文排版（xeCJK + 宋体） |
-| **一键配色** | 换一行代码即可切换整套视觉风格 |
+| **可按需切换配色** | 默认朴素黑字，需要时换一行代码切换配色 |
 | **Claude Code 集成** | 提供独立 `.skill` 文件，配合 AI 自动生成笔记 |
 | **MIT 开源** | 自由使用、修改、分享 |
 
@@ -285,7 +285,7 @@ NovaForge/
 修改 `latex/preamble.tex` 中的 `\definecolor{titlecolor}`：
 
 ```latex
-%% 理科冷静蓝（默认）
+%% 理科冷静蓝（可选配色之一；正文默认朴素黑字，仅在明确要求美化时启用配色）
 \definecolor{titlecolor}{HTML}{1a237e}
 
 %% 文科典雅红
@@ -411,6 +411,15 @@ rm *.aux *.log *.out *.toc
 2. **配色方案**：贡献更多一键换色配置
 3. **示例**：分享你用 NovaForge 整理的学科笔记到 `examples/`
 4. **Bug 修复**：LaTeX 编译问题、环境兼容性
+
+## 🔧 个人化定制（本地）
+
+本地 fork 对 `skills/novaforge/SKILL.md`（与 `NovaForge.skill` 同步）做了以下调整，未改模板正文：
+
+- 默认输出改为 **Typst + PDF**（LaTeX 降为备选），公式用 LaTeX 风格行内 `$...$` 由 Typst 渲染。
+- 默认**朴素克制版式**：黑字宋体、标题居中加粗，去掉蓝色日期/多色标题/彩色底纹；八色系统仅在明确要求美化时启用。
+- 科研模式"与自身研究的关联"默认锚定真实背景（海洋科学/鱼类科研/生物信息学/Python 与 AI），要求落到可操作迁移点而非通用感悟。
+- 新增硬规则：不编造个人信息、去 AI 痕迹（清理路径/脚本名/工具名）、列举数量核对、页数以渲染 PDF 为准、中文字体缺失优先本机修复、多版本标注最终版/中间版。
 
 ## 📄 License
 
